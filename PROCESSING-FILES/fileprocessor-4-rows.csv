@@ -1,0 +1,5 @@
+Dear ${CustomerName}, your account ending ${AccNumber} is credited with ${Amount} ${Currency}.
+CustomerName,AccNumber,Amount,Currency
+John Doe,1234,2500,USD
+Alice Smith,5678,1500,EUR
+Bob Johnson,9876,3200,GBP

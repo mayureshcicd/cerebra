@@ -1,0 +1,69 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+  application:
+    name: cerebra-api
+  cache:
+    type: caffeine
+  datasource:
+    url: jdbc:postgresql://localhost:5432/<VALID-DATABASE>?sslmode=require&currentSchema=<VALID-DATABASE-SCHEMA>&tcpKeepAlive=true
+    username: VALID-POSTGRES-USERNAME
+    password: VALID-POSTGRES-PASSWORD
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 10
+      idle-timeout: 600000
+      connection-timeout: 30000
+      max-lifetime: 1740000
+      pool-name: CerebraDBConnection
+      leak-detection-threshold: 5000
+      validation-timeout: 5000
+      connection-test-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+  output:
+    ansi:
+      enabled: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    tags:
+      application: file-processing-service
+
+cerebra:
+  openApiDescription: cerebra Api for File Processing
+  openApiEmail: a.cerebra@gmail.com
+  openApiLicense: cerebra
+  openApiName: Cerebra-API
+  openApiTermsOfService: https://cerebra.com/
+  openApiTitle: Cerebra
+  openApiUrl: https://cerebra.com
+  openApiServerUrl: http://localhost:8080
+  userEmail: VALID-ADMINISTRATOR-EMAIL-ADDRESS
+  tokenExpirationMs: 3600000
+  tokenRefreshExpirationMs: 86400000
+  tokenSecretKey: kaaSC897zMSgsfus4D4/umw5Cdr018oWczFYjJVYtR8=
+  mailHost: smtp.gmail.com
+  mailPort: 587
+  mailUserName: mayureshratnaparkhi@gmail.com
+  mailPassword: enlw uhwb jgfk wrtz
+  corsAllowUrls: http://localhost:8080
+  corsAllowHeaders: x-requested-with,accept,Authorization,authorization,reason,content-type
+  corsAllowMethods: GET,POST,PUT,PATCH,DELETE,OPTIONS
+  logSecureAttribute: email,password
+  corePoolSize: 5
+  maxPoolSize: 10
+  queueCapacity: 500
+  threadNamePrefix: fileProcessor-
+  uploadDirectory: uploads
+  stompAccessUrl: http://localhost:8080
